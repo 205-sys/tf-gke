@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket  = "YOUR-TF-STATE-BUCKET"
+    bucket  = "office-tf-state-2026-001"
     prefix  = "gke-dev"
   }
 }
