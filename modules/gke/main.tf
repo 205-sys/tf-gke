@@ -15,8 +15,10 @@ resource "google_container_node_pool" "nodes" {
   location = var.region
 
   node_config {
-    machine_type = "e2-medium"
+    machine_type = "e2-micro"   # ✅ smaller VM
+
+    disk_size_gb = 20            # ✅ reduce disk size
   }
 
-  initial_node_count = 2
+  initial_node_count = 1          # ✅ only 1 node
 }
