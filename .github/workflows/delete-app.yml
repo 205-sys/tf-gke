@@ -34,3 +34,9 @@ jobs:
 
       - name: Delete Kubernetes manifests
         run: kubectl delete -f k8s/ --ignore-not-found=true
+
+      - name: Show resources
+        run: |
+          kubectl get pods
+          kubectl get svc
+          kubectl get ingress
