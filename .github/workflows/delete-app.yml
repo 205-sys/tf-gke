@@ -1,0 +1,34 @@
+name: Delete App from GKE
+
+on:
+  workflow_dispatch:
+
+jobs:
+  delete-app:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: "projects/109344998901/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
+          service_account: "terraform-sa@application-prod-497803.iam.gserviceaccount.com"
+
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Get GKE credentials
+        run: |
+          gcloud container clusters get-credentials dev-gke-cluster \
+            --zone asia-southeast1-a \
+            --project application-prod-497803
+
+      - name: Delete Kubernetes manifests
+        run: kubectl delete -f k8s/ --ignore-not-found=true
