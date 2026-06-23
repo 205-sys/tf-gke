@@ -13,7 +13,7 @@ resource "google_container_cluster" "gke" {
   node_config {
     machine_type = "e2-small"
     disk_type    = "pd-standard"
-    disk_size_gb = 10
+    disk_size_gb = 50
   }
 }
 
