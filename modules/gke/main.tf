@@ -4,7 +4,7 @@ resource "google_container_cluster" "gke" {
   network    = var.network
   subnetwork = var.subnetwork
 
-  deletion_protection = false
+  deletion_protection = true
 
   remove_default_node_pool = true
   initial_node_count       = 1
