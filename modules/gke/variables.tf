@@ -1,5 +1,8 @@
 variable "cluster_name" {}
-variable "region" {}
+
+variable "zone" {
+  type = string
+}
 
 variable "network" {
   type = string
