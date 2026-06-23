@@ -1,0 +1,7 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: nginx-managed-cert
+spec:
+  domains:
+    - testing.1122.space

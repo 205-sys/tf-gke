@@ -4,9 +4,12 @@ metadata:
   name: nginx-web-ingress
   annotations:
     kubernetes.io/ingress.class: "gce"
+    kubernetes.io/ingress.global-static-ip-name: "nginx-web-ip"
+    networking.gke.io/managed-certificates: "nginx-managed-cert"
 spec:
   rules:
-    - http:
+    - host: testing.1122.space
+      http:
         paths:
           - path: /
             pathType: Prefix
