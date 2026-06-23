@@ -1,4 +1,10 @@
 variable "cluster_name" {}
 variable "region" {}
-variable "network" {}
-variable "subnetwork" {}
+
+variable "network" {
+  type = string
+}
+
+variable "subnetwork" {
+  type = string
+}
