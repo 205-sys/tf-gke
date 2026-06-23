@@ -21,8 +21,10 @@ jobs:
           workload_identity_provider: "projects/109344998901/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
           service_account: "terraform-sa@application-prod-497803.iam.gserviceaccount.com"
 
-      - name: Setup gcloud
+      - name: Setup gcloud with GKE auth plugin
         uses: google-github-actions/setup-gcloud@v2
+        with:
+          install_components: "gke-gcloud-auth-plugin,kubectl"
 
       - name: Get GKE credentials
         run: |
