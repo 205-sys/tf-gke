@@ -42,7 +42,7 @@ jobs:
             --project application-prod-497803
 
       - name: Deploy Kubernetes manifests
-        run: kubectl apply -f k8s/proxy/
+        run: kubectl apply -f k8s/
 
       - name: Show resources
         run: |
