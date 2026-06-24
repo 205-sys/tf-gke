@@ -33,7 +33,7 @@ jobs:
             --project application-prod-497803
 
       - name: Delete Kubernetes manifests
-        run: kubectl delete -f k8s/ --ignore-not-found=true
+        run: kubectl delete -f k8s/proxy/ --ignore-not-found=true
 
       - name: Show resources
         run: |
