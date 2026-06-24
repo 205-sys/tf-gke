@@ -7,7 +7,7 @@ resource "google_container_cluster" "gke" {
   deletion_protection = true
 
   remove_default_node_pool = true
-  initial_node_count       = 2
+  initial_node_count       = 1
 
   node_config {
     machine_type = "e2-small"
@@ -21,7 +21,7 @@ resource "google_container_node_pool" "nodes" {
   cluster  = google_container_cluster.gke.name
   location = var.zone
 
-  initial_node_count = 1
+  initial_node_count = 2
 
   node_config {
     machine_type = "e2-small"
